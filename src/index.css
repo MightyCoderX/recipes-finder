@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,700;1,600&display=swap');
 *,
 *::before,
 *::after
@@ -5,9 +6,65 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+:root
+{
+    --navbar-height: 80px;
+}
+
+body, html
+{
+    width: 100%;
+    min-height: 100vh;
 }
 
 body
 {
+    background-color: #222;
+    color: #eee;
+}
 
+.header
+{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: var(--navbar-height);
+    background: #444;
+}
+
+.header .logo
+{
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.header .nav-links
+{
+    display: flex;
+    align-items: center;
+}
+
+.header .nav-links a
+{
+    color: #ddd;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.content
+{
+    padding-top: calc(var(--navbar-height) + 1rem);
+}
+
+.recipes-container
+{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
 }
