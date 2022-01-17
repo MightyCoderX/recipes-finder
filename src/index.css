@@ -11,19 +11,26 @@
 
 :root
 {
-    --navbar-height: 80px;
+    --header-height: 80px;
+    --accent-color: #36B00C;
 }
 
-body, html
+body, html, .content > *
 {
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - var(--header-height));
 }
 
 body
 {
-    background-color: #222;
+    background-color: #111311;
     color: #eee;
+    scroll-behavior: smooth;
+}
+
+.MuiSvgIcon-root
+{
+    pointer-events: none;
 }
 
 .header
@@ -33,20 +40,24 @@ body
     align-items: center;
     justify-content: space-around;
     width: 100%;
-    height: var(--navbar-height);
-    background: #444;
+    height: var(--header-height);
+    background: #1f221f;
+    color: var(--accent-color);
+    z-index: 9999;
 }
 
 .header .logo
 {
     font-weight: 600;
     text-transform: capitalize;
+    font-size: min(2rem, 8vmin);
 }
 
 .header .nav-links
 {
     display: flex;
     align-items: center;
+    gap: 1rem;
 }
 
 .header .nav-links a
@@ -54,22 +65,142 @@ body
     color: #ddd;
     font-weight: 500;
     text-decoration: none;
+    display: block;
+}
+
+.header .nav-links a.active
+{
+    color: #006600;
+}
+
+.header .nav-links a svg
+{
+    display: block;
+    font-size: 1.7rem;
+}
+
+.search-form
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.search-form label
+{
+    --input-inline-padding: 0.8rem;
+    --placeholder-color: hsl(105, 100%, 20%);
+    width: max-content;
+    position: relative;
+    overflow: hidden;
+}
+
+.search-form input
+{
+    
+    appearance: none;
+    padding: 0.7rem var(--input-inline-padding);
+    border-radius: 100vw;
+    border: none;
+    background-color: var(--accent-color);
+    outline: none;
+    color: white;
+    font-size: 1rem;
+    min-width: 50vmin;
+}
+
+.search-form input::placeholder
+{
+    color: var(--placeholder-color);
+    font-weight: 500;
+}
+
+.search-form label svg
+{
+    cursor: pointer;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    right: var(--input-inline-padding);
+    font-size: 1.5rem;
+    color: var(--placeholder-color);
+    pointer-events: all;
 }
 
 .content
 {
-    padding-top: calc(var(--navbar-height) + 1rem);
+    padding-top: calc(var(--header-height));
+}
+
+.load-spinner
+{
+    --spinner-color: var(--accent-color);
+    border: 3px solid transparent;
+    border-top-color: var(--spinner-color);
+    border-bottom-color: var(--spinner-color);
+    border-radius: 100%;
+    position: absolute;
+    top: 40%;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 5rem;
+    height: 5rem;
+    z-index: -1;
+    transform-origin: center;
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate
+{
+    to
+    {
+        transform: translateX(-50%) rotate(360deg);
+    }    
 }
 
 .recipes-container
 {
     display: grid;
-    align-items: center;
+    align-items: top;
+    justify-items: center;
     justify-content: center;
     padding: 0.5rem;
+    gap: 1rem 0.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(max-content, 320px));
+}
+
+.link-wrapper
+{
+    color: inherit;
+    text-decoration: none;
+    width: max-content;
+    background-color: #35b00c2f;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    width: 320px;
+    height: max-content;
 }
 
 .recipe-card
 {
-    
+    width: 100%;
+    height: auto;
+}
+
+.recipe-card img
+{
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+}
+
+.recipe-card h3
+{
+    color: inherit;
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 0.5rem;
 }

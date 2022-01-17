@@ -3,6 +3,8 @@ import { APIContext } from '../../API';
 import useFetch from '../../useFetch';
 import RecipeCard from './RecipeCard';
 import ErrorMessage from '../ErrorMessage';
+import LoadSpinner from '../LoadSpinner';
+import { ClearRounded, SearchRounded } from '@mui/icons-material';
 
 function Home()
 {
@@ -11,21 +13,22 @@ function Home()
 
     const { getEndpointUrl } = useContext(APIContext);
 
-    console.log(getEndpointUrl(`/complexSearch`, {
-        query,
-        offset: 0,
-        number: 10,
-        diet: 'vegetarian'
-    }));
-    const { data: recipes, error, isPending } = useFetch();
+    // const { data: recipes, error, isPending } = useFetch(getEndpointUrl(`/complexSearch`, {
+    //     query,
+    //     offset: 0,
+    //     number: 10,
+    //     diet: 'vegetarian'
+    // }));
+
+    //Sample data
+    const { data: recipes, error, isPending } = useFetch(`http://${document.location.hostname}:8080/recipes.json`);
 
     const getSearch = e =>
     {
         e.preventDefault();
 
-        if(!search.trim()) return; 
+        if(!search.trim()) return;
         setQuery(search);
-        setSearch('');
     }
 
     const updateSearch = (e) =>
@@ -34,17 +37,26 @@ function Home()
     }
 
     return (
-        <div>
+        <div style={{marginTop: '1rem'}}>
             <form className="search-form" onSubmit={getSearch}>
                 <label>
-                    Search
-                    <input type="search" name="" value={search} onChange={updateSearch}></input>
+                    <input placeholder="Search..." type="text" value={search} onChange={updateSearch} />
+                    { 
+                        !query ? 
+                            <SearchRounded onClick={getSearch} />
+                        : 
+                            <ClearRounded onClick={ () =>
+                            {
+                                setSearch('');
+                                setQuery('');
+                            }}/>
+                    }
                 </label>
             </form>
             
             <div className="recipes-container">
                 {error && <ErrorMessage message={error} />}
-                {isPending && <div>Loading...</div>}
+                {isPending && <LoadSpinner />}
                 {recipes &&
                     recipes.results.map(recipe => (
                         <RecipeCard key={recipe.id} recipe={recipe} />

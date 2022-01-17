@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Home from "./components/Home/Home";
-import Header from "./components/Header";
-import Recipe from './components/Recipe';
 import { APIProvider } from './API';
+import Home from './components/Home/Home';
+import Header from './components/Header';
+import Recipe from './components/Recipe/Recipe';
+import About from './components/About';
 
 function App()
 {
@@ -19,6 +20,9 @@ function App()
                             </Route>
                             <Route path="/recipe/:id">
                                 <Recipe />
+                            </Route>
+                            <Route exact path="/about">
+                                <About />
                             </Route>
                         </Switch>
                     </APIProvider>

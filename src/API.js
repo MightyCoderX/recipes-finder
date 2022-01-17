@@ -19,8 +19,6 @@ export const APIProvider = ({ children }) =>
             paramsString += `&${param}=${params[param]}`;
         }
 
-        console.log(paramsString);
-
         return baseUrl + endpoint + apiKeyQuery + paramsString;
     }
 

@@ -19,14 +19,14 @@ function useFetch(url)
         })
         .then(data =>
         {
-            setData(data);
             setIsPending(false);
+            setData(data);
             setError(null);
         })
         .catch(err =>
         {
             if(err.name === 'AbortError') return;
-            setIsPending(true);
+            setIsPending(false);
             setError(err.message);
         });
         
