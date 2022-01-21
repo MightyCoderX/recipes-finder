@@ -5,6 +5,7 @@ import RecipeCard from './RecipeCard';
 import ErrorMessage from '../ErrorMessage';
 import LoadSpinner from '../LoadSpinner';
 import { ClearRounded, SearchRounded } from '@mui/icons-material';
+import "../../css/home.css";
 
 function Home()
 {

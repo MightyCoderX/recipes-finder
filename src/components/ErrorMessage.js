@@ -3,7 +3,7 @@ import { ErrorOutlineRounded } from '@mui/icons-material';
 function ErrorMessage({ message })
 {
     return (
-        <div style={{color: 'red'}}>
+        <div className="error-message">
             <ErrorOutlineRounded />
             {message}
         </div>

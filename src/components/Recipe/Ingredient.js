@@ -1,10 +1,9 @@
-function Ingredient({ image, amount, unit, name })
+function Ingredient({ image, name, info })
 {
     return (
-        <div>
+        <div className="ingredient">
             <img src={`https://spoonacular.com/cdn/ingredients_100x100/${image}`} alt={name}/>
-            <span className="ingredient-amount">{`${amount} ${unit}`}</span>&nbsp;
-            <span className="ingredient-name">{name}</span>
+            <span className="ingredient-info">{info}</span>
         </div>
     );
 }

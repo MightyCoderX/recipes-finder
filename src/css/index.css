@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,700;1,600&display=swap');
+
 *,
 *::before,
 *::after
@@ -6,7 +7,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Nunito', sans-serif;
+}
+
+p, span
+{
+    line-height: 1.5;
 }
 
 :root
@@ -26,16 +31,18 @@ body
     background-color: #111311;
     color: #eee;
     scroll-behavior: smooth;
+    font-family: 'Nunito', sans-serif;
 }
 
 .MuiSvgIcon-root
 {
     pointer-events: none;
+    display: block;
 }
 
 .header
 {
-    position: fixed;
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -79,56 +86,6 @@ body
     font-size: 1.7rem;
 }
 
-.search-form
-{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.search-form label
-{
-    --input-inline-padding: 0.8rem;
-    --placeholder-color: hsl(105, 100%, 20%);
-    width: max-content;
-    position: relative;
-    overflow: hidden;
-}
-
-.search-form input
-{
-    
-    appearance: none;
-    padding: 0.7rem var(--input-inline-padding);
-    border-radius: 100vw;
-    border: none;
-    background-color: var(--accent-color);
-    outline: none;
-    color: white;
-    font-size: 1rem;
-    min-width: 50vmin;
-}
-
-.search-form input::placeholder
-{
-    color: var(--placeholder-color);
-    font-weight: 500;
-}
-
-.search-form label svg
-{
-    cursor: pointer;
-    position: absolute;
-    transform: translateY(-50%);
-    top: 50%;
-    right: var(--input-inline-padding);
-    font-size: 1.5rem;
-    color: var(--placeholder-color);
-    pointer-events: all;
-}
-
 .content
 {
     padding-top: calc(var(--header-height));
@@ -160,47 +117,7 @@ body
     }    
 }
 
-.recipes-container
+.error-message
 {
-    display: grid;
-    align-items: top;
-    justify-items: center;
-    justify-content: center;
-    padding: 0.5rem;
-    gap: 1rem 0.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(max-content, 320px));
-}
-
-.link-wrapper
-{
-    color: inherit;
-    text-decoration: none;
-    width: max-content;
-    background-color: #35b00c2f;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    width: 320px;
-    height: max-content;
-}
-
-.recipe-card
-{
-    width: 100%;
-    height: auto;
-}
-
-.recipe-card img
-{
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-    display: block;
-}
-
-.recipe-card h3
-{
-    color: inherit;
-    text-decoration: none;
-    font-size: 0.95rem;
-    padding: 0.5rem;
+    color: red;
 }

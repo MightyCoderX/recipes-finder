@@ -18,6 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "sampleDataServer": "http-server ./sample/ --port 8080 --cors",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
