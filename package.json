@@ -20,6 +20,7 @@
     "start": "react-scripts start",
     "sampleDataServer": "http-server ./sample/ --port 8080 --cors",
     "build": "react-scripts build",
+    "deploy": "react-scripts build & firebase deploy --only hosting:recipes-finder",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -40,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "mini-css-extract-plugin": "2.4.5"
   }
 }

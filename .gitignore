@@ -16,5 +16,6 @@ package-lock.json
 # misc
 .env
 notes.md
+.firebase
 
 npm-debug.log*
