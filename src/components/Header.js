@@ -21,7 +21,7 @@ function Header()
 
     return (
         <div className="header">
-            <h1 className="logo">Vegetarian Recipes</h1>
+            <h1 className="logo">RecipesFinder</h1>
             <nav className="nav-links">
                 <Link to="/" className={document.location.pathname === '/' ? 'active' : ''}>
                     { isNarrow ? <HomeRounded title="Home"/> : 'Home' }
