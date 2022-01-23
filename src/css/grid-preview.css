@@ -27,7 +27,7 @@
     --height: 0.8rem;
     margin: 0 1rem;
     margin-top: calc(230px - (var(--height) * 3 + 1rem));
-    background-color: #12360280;
+    background-color: #10240880;
     width: 80%;
     height: var(--height);
     border-radius: 0.5rem;

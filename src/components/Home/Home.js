@@ -15,15 +15,15 @@ function Home()
 
     const { getEndpointUrl } = useContext(APIContext);
 
-    // const { data: recipes, error, isPending } = useFetch(getEndpointUrl(`/complexSearch`, {
-    //     query,
-    //     offset: 0,
-    //     number: 100,
-    //     diet: 'vegetarian'
-    // }));
+    const { data: recipes, error, isPending } = useFetch(getEndpointUrl(`/complexSearch`, {
+        query,
+        offset: 0,
+        number: 100,
+        diet: 'vegetarian'
+    }));
 
     //Sample data
-    const { data: recipes, error, isPending } = useFetch(`http://${document.location.hostname}:8080/recipes.json`);
+    // const { data: recipes, error, isPending } = useFetch(`http://${document.location.hostname}:8080/recipes.json`);
 
     const getSearch = e =>
     {
@@ -55,7 +55,7 @@ function Home()
                     }
                 </label>
             </form>
-            <GridPreview count={10} />
+            {!error && <GridPreview count={10} />}
             <div className="recipes-container">
                 {error && <ErrorMessage message={error} />}
                 
