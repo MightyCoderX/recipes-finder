@@ -7,7 +7,11 @@ function About()
         <div className="about">
             <h2>About</h2>
             <h3 className="made-by">
-                Made by <span>MightyCoderX</span> with <a href="https://reactjs.org/">
+                Made by <span>MightyCoderX</span> with <a 
+                        href="https://reactjs.org/" 
+                        target="_blank" 
+                        rel="noreferrer"
+                    >
                 <img 
                     src="/favicon.ico" 
                     alt="React"

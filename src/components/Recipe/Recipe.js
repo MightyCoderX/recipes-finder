@@ -34,7 +34,7 @@ function Recipe()
                     </div>
 
                     <div className="recipe-body">
-                        <p className="summary" dangerouslySetInnerHTML={{ __html: recipe.summary}} />
+                        <p className="summary" dangerouslySetInnerHTML={{ __html: recipe.summary }} />
 
                         <h1>Ingredients</h1>
                         <div className="ingredients">
@@ -48,7 +48,7 @@ function Recipe()
                         </div>
 
                         <h1>Instructions</h1>
-                        <div className="instructions" dangerouslySetInnerHTML={{ __html: recipe.instructions}} />
+                        <div className="instructions" dangerouslySetInnerHTML={{ __html: recipe.instructions }} />
                     </div>
                 </div>
             )}

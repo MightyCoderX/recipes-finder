@@ -7,7 +7,7 @@ function RecipeCard({ recipe })
     return (
         <Link to={`/recipe/${id}`} className="link-wrapper">
             <div className="recipe-card">
-                <img src={image} alt={title} />
+                <img src={image} alt={title} loading="lazy"/>
                 <h3>{title}</h3>
             </div>
         </Link>

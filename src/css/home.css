@@ -15,17 +15,33 @@
 .search-form label
 {
     --input-inline-padding: 0.8rem;
-    --placeholder-color: hsl(105, 100%, 20%);
+    --placeholder-color: #175c00;
     width: max-content;
     position: relative;
     overflow: hidden;
+    border-radius: 100vw;
+    box-shadow: 0 0 1rem #000;
+}
+
+.search-form label:focus-within .placeholder
+{
+    display: none;
+}
+
+.search-form label .placeholder
+{
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    left: var(--input-inline-padding);
+    color: var(--placeholder-color);
+    font-weight: 500;
 }
 
 .search-form input
 {   
     appearance: none;
     padding: 0.7rem var(--input-inline-padding);
-    border-radius: 100vw;
     border: none;
     background-color: var(--accent-color);
     outline: none;
@@ -34,11 +50,6 @@
     min-width: 50vmin;
 }
 
-.search-form input::placeholder
-{
-    color: var(--placeholder-color);
-    font-weight: 500;
-}
 
 .search-form label svg
 {
@@ -59,7 +70,7 @@
     justify-items: center;
     justify-content: center;
     padding: 0.5rem;
-    gap: 1rem 0.5rem;
+    gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(max-content, 320px));
 }
 
@@ -67,11 +78,16 @@
 {
     color: inherit;
     text-decoration: none;
-    width: max-content;
-    border-radius: 0.5rem;
-    overflow: hidden;
     width: 320px;
     height: max-content;
+    perspective: 1000px;
+}
+
+.link-wrapper:hover
+{
+    opacity: 1;
+    text-decoration: none;
+    z-index: 999;
 }
 
 .recipe-card
@@ -79,6 +95,17 @@
     width: 100%;
     height: auto;
     position: relative;
+    transition: 0.2s transform ease;
+    z-index: 1;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    pointer-events: none;
+    box-shadow: 0 0 1rem #000;
+}
+
+.link-wrapper:hover .recipe-card
+{
+    transform: scale(1.1);
 }
 
 .recipe-card img
@@ -94,12 +121,11 @@
 {
     position: absolute;
     bottom: 0;
-    z-index: 2;
+    z-index: 1;
     color: inherit;
     text-decoration: none;
     font-size: 0.95rem;
     padding: 0.5rem;
     background-color: #213d15f0;
     width: 100%;
-    border-radius: inherit;
 }

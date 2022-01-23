@@ -5,7 +5,6 @@ import RecipeCard from './RecipeCard';
 import ErrorMessage from '../ErrorMessage';
 import { ClearRounded, SearchRounded } from '@mui/icons-material';
 import '../../css/home.css';
-import GridPreviewItem from '../GridPreview/GridPreviewItem';
 import GridPreview from '../GridPreview/GridPreview';
 
 function Home()
@@ -15,7 +14,7 @@ function Home()
 
     const { getEndpointUrl } = useContext(APIContext);
 
-    const { data: recipes, error, isPending } = useFetch(getEndpointUrl(`/complexSearch`, {
+    const { data: recipes, error } = useFetch(getEndpointUrl(`/complexSearch`, {
         query,
         offset: 0,
         number: 100,
@@ -42,7 +41,10 @@ function Home()
         <div className="home">
             <form className="search-form" onSubmit={getSearch}>
                 <label>
-                    <input placeholder="Search..." type="text" value={search} onChange={updateSearch} />
+                    <span className="placeholder">
+                        Search...
+                    </span>
+                    <input type="text" value={search} onChange={updateSearch} />
                     { 
                         !query ? 
                             <SearchRounded onClick={getSearch} />

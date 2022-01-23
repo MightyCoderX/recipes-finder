@@ -10,12 +10,14 @@
 {
     font-family: 'Roboto', sans-serif;
     margin: 0 auto;
+    color: #ccc;
 }
 
 .recipe h1
 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     font-weight: 400;
+    color: #eee;
 }
 
 
@@ -37,8 +39,8 @@
     display: block;
     margin: 0 auto;
     margin-bottom: 3rem;
-    width: 600px;
-    max-width: 90%;
+    width: auto;
+    max-width: 100%;
 }
 
 .recipe-info-container
@@ -82,9 +84,11 @@
 .summary
 {
     letter-spacing: 0.05rem;
-    font-weight: 300;
+    font-weight: 400;
     display: block;
     margin-bottom: 2rem;
+    color: #bbb;
+    line-height: 1.6;
 }
 
 .ingredients
@@ -121,6 +125,7 @@
     counter-reset: list-counter;
     width: 90%;
     margin: 0 auto;
+    margin-left: 2.5rem;
 }
 
 .instructions ol li
