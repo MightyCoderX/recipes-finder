@@ -25,7 +25,11 @@ function useFetch(url)
         })
         .catch(err =>
         {
-            if(err.name === 'AbortError') return;
+            if(err.name === 'AbortError')
+            {
+                console.log(`Aborted fetch('${url}')`);
+                return;
+            }
             setIsPending(false);
             setError(err.message);
         });

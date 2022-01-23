@@ -1,0 +1,53 @@
+.grid-preview
+{
+    position: absolute;
+    display: grid;
+    align-items: flex-start;
+    justify-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    gap: 1rem 0.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(max-content, 320px));
+    width: 100%;
+}
+
+.grid-preview-item
+{
+    width: 320px;
+    height: 230px;
+    background-color: #1d610080;
+    border-radius: 0.5rem;
+    position: relative;
+    animation: fade 0.3s linear infinite alternate;
+}
+
+
+.grid-preview-item-text
+{
+    --height: 0.8rem;
+    margin: 0 1rem;
+    margin-top: calc(230px - (var(--height) * 3 + 1rem));
+    background-color: #12360280;
+    width: 80%;
+    height: var(--height);
+    border-radius: 0.5rem;
+}
+
+.grid-preview-item-text:nth-child(2)
+{
+    margin-top: 0.5rem;
+    width: 65%;
+}
+
+@keyframes fade
+{
+    from
+    {
+        opacity: 0.8;
+    }
+
+    to
+    {
+        opacity: 1;
+    }
+}

@@ -6,7 +6,7 @@ import ErrorMessage from '../ErrorMessage';
 import LoadSpinner from '../LoadSpinner';
 import RecipeInfo from './RecipeInfo';
 import Ingredient from './Ingredient';
-import "../../css/recipe.css";
+import '../../css/recipe.css';
 
 function Recipe()
 {

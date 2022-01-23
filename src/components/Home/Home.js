@@ -3,9 +3,10 @@ import { APIContext } from '../../API';
 import useFetch from '../../useFetch';
 import RecipeCard from './RecipeCard';
 import ErrorMessage from '../ErrorMessage';
-import LoadSpinner from '../LoadSpinner';
 import { ClearRounded, SearchRounded } from '@mui/icons-material';
-import "../../css/home.css";
+import '../../css/home.css';
+import GridPreviewItem from '../GridPreview/GridPreviewItem';
+import GridPreview from '../GridPreview/GridPreview';
 
 function Home()
 {
@@ -14,15 +15,15 @@ function Home()
 
     const { getEndpointUrl } = useContext(APIContext);
 
-    const { data: recipes, error, isPending } = useFetch(getEndpointUrl(`/complexSearch`, {
-        query,
-        offset: 0,
-        number: 10,
-        diet: 'vegetarian'
-    }));
+    // const { data: recipes, error, isPending } = useFetch(getEndpointUrl(`/complexSearch`, {
+    //     query,
+    //     offset: 0,
+    //     number: 100,
+    //     diet: 'vegetarian'
+    // }));
 
     //Sample data
-    // const { data: recipes, error, isPending } = useFetch(`http://${document.location.hostname}:8080/recipes.json`);
+    const { data: recipes, error, isPending } = useFetch(`http://${document.location.hostname}:8080/recipes.json`);
 
     const getSearch = e =>
     {
@@ -38,7 +39,7 @@ function Home()
     }
 
     return (
-        <div style={{marginTop: '1rem'}}>
+        <div className="home">
             <form className="search-form" onSubmit={getSearch}>
                 <label>
                     <input placeholder="Search..." type="text" value={search} onChange={updateSearch} />
@@ -54,10 +55,10 @@ function Home()
                     }
                 </label>
             </form>
-            
+            <GridPreview count={10} />
             <div className="recipes-container">
                 {error && <ErrorMessage message={error} />}
-                {isPending && <LoadSpinner />}
+                
                 {recipes &&
                     recipes.results.map(recipe => (
                         <RecipeCard key={recipe.id} recipe={recipe} />

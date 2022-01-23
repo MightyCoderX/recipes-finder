@@ -1,9 +1,12 @@
 import { HomeRounded, InfoOutlined } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Header()
 {
+    const location = useLocation();
+
     const breakpoint = 750;
     const [isNarrow, setIsNarrow] = useState(window.innerWidth <= breakpoint);
 
@@ -21,12 +24,12 @@ function Header()
 
     return (
         <div className="header">
-            <h1 className="logo">RecipesFinder</h1>
+            <Link to="/" className="logo">RecipesFinder</Link>
             <nav className="nav-links">
-                <Link to="/" className={document.location.pathname === '/' ? 'active' : ''}>
+                <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
                     { isNarrow ? <HomeRounded title="Home"/> : 'Home' }
                 </Link>
-                <Link to="/about" className={document.location.pathname === '/about' ? 'active' : ''}>
+                <Link to="/about" className={location.pathname === '/about' ? 'active' : ''}>
                     { isNarrow ? <InfoOutlined title="About"/> : 'About' }
                 </Link>
             </nav>
