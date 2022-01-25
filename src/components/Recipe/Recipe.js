@@ -26,7 +26,7 @@ function Recipe()
                         <h1 className="recipe-title">{recipe.title}</h1>
                         <img className="recipe-image" src={recipe.image} alt={recipe.title} />
                         <div className="recipe-info-container">
-                            <RecipeInfo icon="attach_money" text={`${recipe.pricePerServing}`}/>
+                            <RecipeInfo icon="attach_money" text={`${(recipe.pricePerServing/10).toFixed(2)}`}/>
                             <RecipeInfo icon="schedule" text={`${recipe.readyInMinutes} min`}/>
                             <RecipeInfo icon="people" text={`${recipe.servings} servings`}/>
                             <RecipeInfo icon="favorite" text={`${recipe.spoonacularScore}`}/>

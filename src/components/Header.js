@@ -1,7 +1,6 @@
 import { HomeRounded, InfoOutlined } from '@mui/icons-material';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Header()
 {
