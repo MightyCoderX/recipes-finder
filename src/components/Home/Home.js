@@ -37,6 +37,12 @@ function Home()
         setSearch(e.target.value);
     }
 
+    const clearSearch = () =>
+    {
+        setSearch('');
+        setQuery('');
+    }
+
     return (
         <div className="home">
             <form className="search-form" onSubmit={getSearch}>
@@ -47,13 +53,13 @@ function Home()
                     <input type="text" value={search} onChange={updateSearch} />
                     { 
                         !query ? 
-                            <SearchRounded onClick={getSearch} />
+                            <div className="icon" onClick={getSearch}>
+                                <SearchRounded  />
+                            </div>
                         : 
-                            <ClearRounded onClick={ () =>
-                            {
-                                setSearch('');
-                                setQuery('');
-                            }}/>
+                            <div className="icon" onClick={clearSearch}>
+                                <ClearRounded />
+                            </div>
                     }
                 </label>
             </form>

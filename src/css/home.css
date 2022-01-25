@@ -9,18 +9,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 
 .search-form label
 {
     --input-inline-padding: 0.8rem;
+    --input-block-padding: 0.7rem;
     --placeholder-color: #175c00;
     width: max-content;
     position: relative;
     overflow: hidden;
     border-radius: 100vw;
     box-shadow: 0 0 1rem #000;
+    display: flex;
+    background-color: var(--accent-color);
 }
 
 .search-form label:focus-within .placeholder
@@ -36,31 +39,30 @@
     left: var(--input-inline-padding);
     color: var(--placeholder-color);
     font-weight: 500;
+    pointer-events: none;
 }
 
 .search-form input
 {   
     appearance: none;
-    padding: 0.7rem var(--input-inline-padding);
+    padding: var(--input-block-padding) var(--input-inline-padding);
     border: none;
-    background-color: var(--accent-color);
     outline: none;
     color: white;
     font-size: 1rem;
     min-width: 50vmin;
+    background: none;
 }
 
 
-.search-form label svg
+.search-form label .icon
 {
     cursor: pointer;
-    position: absolute;
-    transform: translateY(-50%);
-    top: 50%;
-    right: var(--input-inline-padding);
     font-size: 1.5rem;
     color: var(--placeholder-color);
-    pointer-events: all;
+    padding: var(--input-block-padding) var(--input-inline-padding);
+    width: max-content;
+    height: 100%;
 }
 
 .recipes-container

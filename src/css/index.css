@@ -11,8 +11,9 @@
 
 :root
 {
-    --header-height: 80px;
+    --header-height: 6rem;
     --accent-color: #36B00C;
+    --background-color: #001505;
 }
 
 body, html, .content > *
@@ -28,7 +29,7 @@ body, html
 
 body
 {
-    background-color: #111311;
+    background-color: var(--background-color);
     color: #eee;
     scroll-behavior: smooth;
     font-family: 'Nunito', sans-serif;
@@ -66,7 +67,6 @@ svg.MuiSvgIcon-root
     justify-content: space-around;
     width: 100vw;
     height: var(--header-height);
-    background: #1f221f;
     z-index: 9999;
 }
 
