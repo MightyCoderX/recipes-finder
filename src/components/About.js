@@ -13,7 +13,7 @@ function About()
                         rel="noreferrer"
                     >
                 <img 
-                    src="/favicon.ico" 
+                    src="/react.ico" 
                     alt="React"
                 />
                 </a>

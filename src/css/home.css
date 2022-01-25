@@ -95,7 +95,7 @@
     width: 100%;
     height: auto;
     position: relative;
-    transition: 0.2s transform ease;
+    transition: 0.2s transform cubic-bezier(0.84,-0.47, 0, 1.56);
     z-index: 1;
     border-radius: 0.5rem;
     overflow: hidden;
