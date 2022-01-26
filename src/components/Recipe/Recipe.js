@@ -11,14 +11,14 @@ import '../../css/recipe.css';
 function Recipe()
 {
     const { id } = useParams();
-    const { getEndpointUrl } = useContext(APIContext);
+    const { getEndpointUrl, getErrorMessage } = useContext(APIContext);
 
     const { data: recipe, error, isPending } = useFetch(getEndpointUrl(`/${id}/information`));
     // const { data: recipe, error, isPending } = useFetch(`http://${document.location.hostname}:8080/recipe.json`);
 
     return (
         <div className="recipe-container">
-            {error && <ErrorMessage message={error} />}
+            {error && <ErrorMessage message={getErrorMessage(error)} />}
             {isPending && <LoadSpinner />}
             {recipe && (
                 <div className="recipe">

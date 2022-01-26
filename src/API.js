@@ -22,8 +22,25 @@ export const APIProvider = ({ children }) =>
         return baseUrl + endpoint + apiKeyQuery + paramsString;
     }
 
+    const getErrorMessage = (responseStatus) =>
+    {
+        responseStatus = Number(responseStatus);
+        
+        switch(responseStatus)
+        {
+            case 404:
+                return '404 Resource not found';
+
+            case 402:
+                return '402 Daily quota reached';
+
+            default:
+                return responseStatus;
+        }
+    }
+
     return (
-        <APIContext.Provider value={{ getEndpointUrl }}>
+        <APIContext.Provider value={{ getEndpointUrl, getErrorMessage }}>
             {children}
         </APIContext.Provider>
     );

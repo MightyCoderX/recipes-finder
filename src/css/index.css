@@ -139,5 +139,24 @@ svg.MuiSvgIcon-root
 
 .error-message
 {
-    color: red;
+    color: #700000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #d62c2c;
+    padding: 1rem;
+    border-radius: 1rem;
+    width: max-content;
+    margin: 0 auto;
+}
+
+.error-message svg
+{
+    font-size: 2rem;
+}
+
+.error-message span
+{
+    color: #fff4f4;
 }

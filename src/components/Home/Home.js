@@ -12,12 +12,12 @@ function Home()
     const [search, setSearch] = useState('');
     const [query, setQuery] = useState('');
 
-    const { getEndpointUrl } = useContext(APIContext);
+    const { getEndpointUrl, getErrorMessage } = useContext(APIContext);
 
     const { data: recipes, error } = useFetch(getEndpointUrl(`/complexSearch`, {
         query,
         offset: 0,
-        number: 100,
+        number: 20,
         diet: 'vegetarian'
     }));
 
@@ -43,14 +43,15 @@ function Home()
         setQuery('');
     }
 
+
     return (
         <div className="home">
             <form className="search-form" onSubmit={getSearch}>
                 <label>
+                    <input type="text" value={search} onChange={updateSearch} placeholder=" " />
                     <span className="placeholder">
                         Search...
                     </span>
-                    <input type="text" value={search} onChange={updateSearch} />
                     { 
                         !query ? 
                             <div className="icon" onClick={getSearch}>
@@ -63,9 +64,10 @@ function Home()
                     }
                 </label>
             </form>
+
             {!error && <GridPreview count={10} />}
             <div className="recipes-container">
-                {error && <ErrorMessage message={error} />}
+                {error && <ErrorMessage message={getErrorMessage(error)} />}
                 
                 {recipes &&
                     recipes.results.map(recipe => (

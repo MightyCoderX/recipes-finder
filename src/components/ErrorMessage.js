@@ -5,7 +5,7 @@ function ErrorMessage({ message })
     return (
         <div className="error-message">
             <ErrorOutlineRounded />
-            {message}
+            <span>{message}</span>
         </div>
     );
 }

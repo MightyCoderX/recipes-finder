@@ -26,11 +26,6 @@
     background-color: var(--accent-color);
 }
 
-.search-form label:focus-within .placeholder
-{
-    display: none;
-}
-
 .search-form label .placeholder
 {
     position: absolute;
@@ -40,12 +35,19 @@
     color: var(--placeholder-color);
     font-weight: 500;
     pointer-events: none;
+    user-select: none;
+}
+
+.search-form label input:not(:placeholder-shown) + .placeholder
+{
+    display: none;
 }
 
 .search-form input
 {   
     appearance: none;
     padding: var(--input-block-padding) var(--input-inline-padding);
+    padding-right: 0;
     border: none;
     outline: none;
     color: white;
@@ -54,6 +56,10 @@
     background: none;
 }
 
+.search-form input::placeholder
+{
+    user-select: none;
+}
 
 .search-form label .icon
 {
