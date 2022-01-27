@@ -14,15 +14,15 @@ function Home()
 
     const { getEndpointUrl, getErrorMessage } = useContext(APIContext);
 
-    // const { data: recipes, error } = useFetch(getEndpointUrl(`/complexSearch`, {
-    //     query,
-    //     offset: 0,
-    //     number: 20,
-    //     diet: 'vegetarian'
-    // }));
+    const { data: recipes, error } = useFetch(getEndpointUrl(`/complexSearch`, {
+        query,
+        offset: 0,
+        number: 20,
+        diet: 'vegetarian'
+    }));
 
     // Sample data
-    let { data: recipes, error, isPending } = useFetch(`http://${document.location.hostname}:8080/recipes.json`);
+    // let { data: recipes, error, isPending } = useFetch(`http://${document.location.hostname}:8080/recipes.json`);
 
     const getSearch = e =>
     {

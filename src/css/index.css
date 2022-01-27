@@ -47,10 +47,13 @@ a
     transition: 0.1s opacity;
 }
 
-a:hover
+@media screen and (min-width: 750px)
 {
-    opacity: 0.8;
-    text-decoration: underline;
+    a:hover
+    {
+        opacity: 0.8;
+        text-decoration: underline;
+    }
 }
 
 svg.MuiSvgIcon-root
@@ -159,9 +162,4 @@ svg.MuiSvgIcon-root
 .error-message span
 {
     color: #fff4f4;
-}
-
-@media screen and (min-width: )
-{
-    
 }

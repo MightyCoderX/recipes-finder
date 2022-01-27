@@ -24,14 +24,12 @@ export const APIProvider = ({ children }) =>
 
     const getErrorMessage = (responseStatus) =>
     {
-        responseStatus = Number(responseStatus);
-        
         switch(responseStatus)
         {
-            case 404:
+            case '404':
                 return '404 Resource not found';
 
-            case 402:
+            case '402':
                 return '402 Daily quota reached';
 
             default:
