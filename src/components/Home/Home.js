@@ -14,15 +14,15 @@ function Home()
 
     const { getEndpointUrl, getErrorMessage } = useContext(APIContext);
 
-    const { data: recipes, error } = useFetch(getEndpointUrl(`/complexSearch`, {
-        query,
-        offset: 0,
-        number: 20,
-        diet: 'vegetarian'
-    }));
+    // const { data: recipes, error } = useFetch(getEndpointUrl(`/complexSearch`, {
+    //     query,
+    //     offset: 0,
+    //     number: 20,
+    //     diet: 'vegetarian'
+    // }));
 
-    //Sample data
-    // const { data: recipes, error, isPending } = useFetch(`http://${document.location.hostname}:8080/recipes.json`);
+    // Sample data
+    let { data: recipes, error, isPending } = useFetch(`http://${document.location.hostname}:8080/recipes.json`);
 
     const getSearch = e =>
     {
@@ -42,7 +42,6 @@ function Home()
         setSearch('');
         setQuery('');
     }
-
 
     return (
         <div className="home">
@@ -70,7 +69,7 @@ function Home()
                 {error && <ErrorMessage message={getErrorMessage(error)} />}
                 
                 {recipes &&
-                    recipes.results.map(recipe => (
+                    recipes.results.slice(0, 20).map(recipe => (
                         <RecipeCard key={recipe.id} recipe={recipe} />
                     ))
                 }

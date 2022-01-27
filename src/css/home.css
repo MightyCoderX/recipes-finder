@@ -17,13 +17,20 @@
     --input-inline-padding: 0.8rem;
     --input-block-padding: 0.7rem;
     --placeholder-color: #175c00;
+    --shadow-color: #000;
     width: max-content;
     position: relative;
     overflow: hidden;
     border-radius: 100vw;
-    box-shadow: 0 0 1rem #000;
+    box-shadow: 0 0 1rem var(--shadow-color);
     display: flex;
     background-color: var(--accent-color);
+    transition: 0.4s ease;
+}
+
+.search-form label:focus-within
+{
+    --shadow-color: #0f0a;
 }
 
 .search-form label .placeholder
@@ -89,6 +96,8 @@
     width: 320px;
     height: max-content;
     perspective: 1000px;
+    isolation: isolate;
+    z-index: 0;
 }
 
 .link-wrapper:hover
@@ -103,18 +112,18 @@
     width: 100%;
     height: auto;
     position: relative;
-    transition: 0.2s transform cubic-bezier(0.84,-0.47, 0, 1.56);
-    z-index: 1;
     border-radius: 0.5rem;
     overflow: hidden;
     pointer-events: none;
     box-shadow: 0 0 1rem #000;
+    z-index: 1;
+    transition: 0.3s transform cubic-bezier(0.65, 0.33, 0.35, 0.9);
 }
-
+/* 
 .link-wrapper:hover .recipe-card
 {
-    transform: scale(1.1);
-}
+    transform: scale(1.01);
+} */
 
 .recipe-card img
 {
@@ -123,17 +132,33 @@
     object-fit: cover;
     display: block;
     border-radius: inherit;
+    z-index: 2;
+}
+
+@property --gradient-color
+{
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #000000c4;
 }
 
 .recipe-card h3
 {
+    --gradient-color: #000000c4;
     position: absolute;
     bottom: 0;
-    z-index: 1;
+    z-index: 3;
     color: inherit;
     text-decoration: none;
     font-size: 0.95rem;
     padding: 0.5rem;
-    background-color: #213d15f0;
+    padding-top: 2rem;
+    background: linear-gradient(transparent, var(--gradient-color) 60%);
     width: 100%;
+    transition: 0.3s --gradient-color ease;
+}
+
+.link-wrapper:hover .recipe-card h3
+{
+    --gradient-color: #003a05c4;
 }
