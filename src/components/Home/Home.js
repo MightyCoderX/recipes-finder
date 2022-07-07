@@ -17,8 +17,7 @@ function Home()
     const { data: recipes, error } = useFetch(getEndpointUrl(`/complexSearch`, {
         query,
         offset: 0,
-        number: 20,
-        diet: 'vegetarian'
+        number: 20
     }));
 
     // Sample data
