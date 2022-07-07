@@ -63,7 +63,7 @@ function Home()
                 </label>
             </form>
 
-            {!error && <GridPreview count={10} />}
+            {(!error && !recipes) && <GridPreview count={10} />}
             <div className="recipes-container">
                 {error && <ErrorMessage message={getErrorMessage(error)} />}
                 
