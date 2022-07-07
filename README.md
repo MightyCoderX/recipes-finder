@@ -7,7 +7,7 @@
 <h3 align="center">Recipes Finder</h3>
 
 <p align="center">
-  A vegetarian recipes web app
+  Find your recipe
 </p>
 
 ## About The Project
